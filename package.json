@@ -1,0 +1,30 @@
+{
+  "name": "doggo-nest-vue",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "build:deploy": "vite build && npm run copy",
+    "copy": "xcopy /E /I /Y /Q dist C:\\wamp64\\www\\web202510\\doggo-nest"
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "counterup2": "^2.0.2",
+    "headroom.js": "^0.12.0",
+    "sweetalert2": "^11.26.3",
+    "typeit": "^8.8.7",
+    "vue": "^3.5.22",
+    "vue-router": "^4.6.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "vite": "^7.1.11",
+    "vite-plugin-vue-devtools": "^8.0.3"
+  }
+}

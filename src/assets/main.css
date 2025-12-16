@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC:wght@200..900&display=swap');
+
+/* 主色票 */
+:root {
+  --brand-primary: oklch(0.6208 0.0478 166.41);
+  --brand-secondary: oklch(0.7893 0.0411 161.34);
+  --brand-accent: oklch(0.8342 0.117 87.43);
+  --brand-warm: oklch(0.7806 0.1269 57.86);
+  --brand-dark: oklch(0.3753 0.0438 226.2);
+  --brand-light: oklch(0.9773 0.0025 165.08);
+}
+
+.bg-cover {
+  background-size: cover;
+  background-position: center center;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  height: 100%;
+  padding: 0;
+  font-family: "Noto Sans TC", sans-serif;
+  color: #4a4a4a;
+  background-color: var(--brand-light);
+}
+
+.btn {
+  padding: 0.5rem 2rem;
+  border: none;
+  background-color: var(--brand-primary);
+  border-radius: 50px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: oklch(0.5 0.0478 166.41);
+  color: var(--brand-light);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--brand-dark);
+}

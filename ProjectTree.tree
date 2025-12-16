@@ -1,0 +1,119 @@
+
+```
+doggo-nest-vue
+├─ index.html
+├─ jsconfig.json
+├─ package-lock.json
+├─ package.json
+├─ ProjectTree.tree
+├─ public
+│  ├─ favicon.ico
+│  ├─ images
+│  │  ├─ news
+│  │  │  ├─ news1.jpg
+│  │  │  ├─ news2.jpg
+│  │  │  ├─ news3.jpg
+│  │  │  ├─ news4.jpg
+│  │  │  ├─ news5.jpg
+│  │  │  ├─ news6.jpg
+│  │  │  └─ news7.jpg
+│  │  ├─ products
+│  │  │  ├─ Bowl.jpg
+│  │  │  ├─ Leash.jpg
+│  │  │  ├─ Pillow.jpg
+│  │  │  └─ Rope.jpg
+│  │  ├─ team
+│  │  │  ├─ AlexChen.jpg
+│  │  │  ├─ EmmaChen.jpg
+│  │  │  ├─ JasonWu.jpg
+│  │  │  ├─ JayHuang.jpg
+│  │  │  ├─ KevinLin.jpg
+│  │  │  ├─ LeoWang.jpg
+│  │  │  ├─ LilyHsu.jpg
+│  │  │  ├─ MiaKao.jpg
+│  │  │  ├─ NinaLee.jpg
+│  │  │  ├─ RyanTsai.jpg
+│  │  │  ├─ SofiaYang.jpg
+│  │  │  ├─ SophieLin.jpg
+│  │  │  ├─ WHO.jpg
+│  │  │  └─ YangChang.jpg
+│  │  ├─ test
+│  │  │  ├─ BorderCollie.jpg
+│  │  │  ├─ FrenchBulldog.jpg
+│  │  │  ├─ GoldenRetriever.jpg
+│  │  │  └─ Shiba.jpg
+│  │  └─ testimonials
+│  │     ├─ PeopleAndDog11-1.jpg
+│  │     ├─ PeopleAndDog21-1.jpg
+│  │     ├─ PeopleAndDog31-1.jpg
+│  │     └─ photothumb.db
+│  └─ json
+│     └─ CityCountyData.json
+├─ README.md
+├─ src
+│  ├─ App.vue
+│  ├─ assets
+│  │  ├─ images
+│  │  │  ├─ adaption
+│  │  │  │  ├─ Mtach1.jpg
+│  │  │  │  ├─ Mtach2.jpg
+│  │  │  │  ├─ Mtach3.jpg
+│  │  │  │  ├─ Mtach4.jpg
+│  │  │  │  ├─ Mtach5.jpg
+│  │  │  │  ├─ Mtach6.jpg
+│  │  │  │  ├─ Mtach7.jpg
+│  │  │  │  └─ Mtach8.jpg
+│  │  │  ├─ BorderCollie.jpg
+│  │  │  ├─ DogPark.jpg
+│  │  │  ├─ DogWithToy.jpg
+│  │  │  ├─ FrenchBulldog.jpg
+│  │  │  ├─ GoldenRetriever.jpg
+│  │  │  ├─ Lab1.jpg
+│  │  │  ├─ Lab2.jpg
+│  │  │  ├─ Lab3.jpg
+│  │  │  ├─ Lab4.jpg
+│  │  │  ├─ Lab5.jpg
+│  │  │  ├─ PetBowl.jpg
+│  │  │  ├─ PetPillow.jpg
+│  │  │  ├─ Rope.jpg
+│  │  │  ├─ Shiba.jpg
+│  │  │  └─ WalkingDog.jpg
+│  │  ├─ logo.svg
+│  │  └─ main.css
+│  ├─ components
+│  │  ├─ About.vue
+│  │  ├─ AboutCard.vue
+│  │  ├─ Contact.vue
+│  │  ├─ Footer.vue
+│  │  ├─ Home.vue
+│  │  ├─ Mission.vue
+│  │  ├─ Modal.vue
+│  │  ├─ modals
+│  │  │  ├─ LoginModal.vue
+│  │  │  ├─ MatchModal.vue
+│  │  │  ├─ MatchModal_RE.vue
+│  │  │  ├─ ProcessStep.vue
+│  │  │  └─ RegisterModal.vue
+│  │  ├─ Navbar.vue
+│  │  ├─ News.vue
+│  │  ├─ Partners.vue
+│  │  ├─ PartnersGroup.vue
+│  │  ├─ ProductList.vue
+│  │  ├─ Products.vue
+│  │  ├─ QandA.vue
+│  │  ├─ Services.vue
+│  │  ├─ Sub.vue
+│  │  ├─ Team.vue
+│  │  ├─ Test.vue
+│  │  ├─ Testimonials.vue
+│  │  └─ TestimonialsCard.vue
+│  ├─ composables
+│  │  └─ useValidation.js
+│  ├─ main.js
+│  ├─ router
+│  │  └─ index.js
+│  └─ views
+│     └─ HomeView.vue
+└─ vite.config.js
+
+```
