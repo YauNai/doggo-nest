@@ -18,14 +18,14 @@ export default async function checkLoginStatus() {
 
       if (!res.ok) {
         console.error(data)
-        return { isLoggedIn: false, username: null };
+        return { isLoggedIn: false, username: null, level: null };
       }
 
-      return { isLoggedIn: true, username: data.username };
+      return { isLoggedIn: true, username: data.username, level: data.level };
 
     } catch (err) {
       console.error(err);
-      return { isLoggedIn: false, username: null };
+      return { isLoggedIn: false, username: null, level: null };
     }
 
 }

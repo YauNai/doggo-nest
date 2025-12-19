@@ -1,7 +1,7 @@
 <script setup>
 const props = defineProps({
   isHidden: {
-    type: Boolean,
+    type: String,
     required: true
   }
 })

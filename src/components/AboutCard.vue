@@ -23,7 +23,7 @@ const props = defineProps({
     required: true
   },
   fadeDelay: {
-    type: Number
+    type: String
   }
 })
 

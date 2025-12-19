@@ -40,9 +40,9 @@
   <Navbar />
   <Home />
   <News />
-  <PleaseLogin v-if="!isLoggedIn" />
+  <!-- <PleaseLogin v-if="!isLoggedIn" /> -->
 
-  <span v-else>
+  <span>
     <SubNewspaper main="訂閱電子報，隨時掌握我們的最新活動與消息！" />
     <Mission main="每隻狗狗都值得被看見" sub="我們用耐心、尊重與陪伴，讓牠找到最溫暖的家。" variant="warm" />
     <Services />

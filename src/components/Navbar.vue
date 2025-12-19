@@ -3,7 +3,7 @@ import { useAuth } from '@/composables/useAuth';
 import Headroom from 'headroom.js';
 import { onMounted, ref } from 'vue';
 
-const { isLoggedIn, username, checkAuth, logout } = useAuth();
+const { isLoggedIn, username, level, checkAuth } = useAuth();
 
 const headerRef = ref(null);
 let headroom = null;
@@ -90,6 +90,9 @@ onMounted(async () => {
             <button v-if="!isLoggedIn" class="btn" data-bs-toggle="modal" data-bs-target="#registerModal">
               <i class="bi bi-person-arms-up"></i> 註冊
             </button>
+            <RouterLink to="/admin" v-if="level === 'admin'" class="btn me-2">
+              <i class="fa-solid fa-screwdriver"></i> 進入管理頁面
+            </RouterLink>
             <button v-if="isLoggedIn" data-bs-toggle="modal" data-bs-target="#logoutModal" class="btn">
               <i class="bi bi-door-open-fill"></i> 登出
             </button>

@@ -4,6 +4,7 @@ import setCookie from "./setCookie";
 
 const isLoggedIn = ref(false);
 const username = ref("");
+const level = ref("")
 const isLoading = ref(false);
 
 export function useAuth() {
@@ -14,6 +15,7 @@ export function useAuth() {
 
     isLoggedIn.value = result.isLoggedIn;
     username.value = result.username;
+    level.value = result.level;
     isLoading.value = false;
 
     return result;
@@ -29,6 +31,7 @@ export function useAuth() {
   return {
     isLoggedIn,
     username,
+    level,
     isLoading,
     checkAuth,
     logout,
