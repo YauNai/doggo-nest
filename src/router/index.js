@@ -5,8 +5,7 @@ import { useAuth } from '@/composables/useAuth'
 import NotFoundView from '@/views/NotFoundView.vue'
 
 const router = createRouter({
-  // history: createWebHistory(import.meta.env.BASE_URL),
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',

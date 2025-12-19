@@ -9,7 +9,7 @@ export default defineConfig({
   server: {
     port: 9000,
   },
-  base: './',
+  base: '/web202510/doggo-nest/',
   plugins: [
     vue(),
     vueDevTools(),
