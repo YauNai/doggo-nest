@@ -1,151 +1,111 @@
 <template>
   <section>
     <h1 class="text-center pb-3">會員圖表</h1>
-    <div class="grid-container">
-      <div>
-        <select v-model="selectedCity" class="form-select">
-          <option value="" disabled selected>請選擇目標縣市</option>
-          <option v-for="city in cityList" :key="city" :value="city">
-            {{ city }}
-          </option>
-        </select>
+    <div>
+      <div v-if="isLoading">
+        <h1 class="text-center">載入中...</h1>
       </div>
-      <div>
-        <canvas ref="chart" class="chart"></canvas>
+      <div v-else>
+        <h1 v-if="error" class="text-danger">錯誤：{{ error }}</h1>
+        <div v-else class="charts">
+          <canvas ref="chartLevel" class="level"></canvas>
+          <canvas ref="chartEdu" class="edu"></canvas>
+          <canvas ref="chartCity" class="city"></canvas>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import getAllUsers from '@/composables/getAllUsers';
-import { ref, onMounted, useTemplateRef, watch } from 'vue';
+import countLevel from '@/composables/count/countLevel';
+import countEdu from '@/composables/count/countEdu';
+import countCity from '@/composables/count/countCity';
+import { ref, onMounted, useTemplateRef, nextTick, onUnmounted } from 'vue';
 import makeChart from '@/composables/makeChart';
 
-const users = ref([]);
-const loading = ref(false);
+const isLoading = ref(false);
 const error = ref(null);
 
-const ctx = useTemplateRef('chart')
-const chartLabels = ref([])
-const chartData = ref([])
+const insCharts = ref([])
 
-// 讀取會員資料
-const loadUsersData = async () => {
-  try {
-    const data = await getAllUsers();
-    users.value = data.users;
-  } catch (err) {
-    error.value = err.message;
-  } finally {
-    loading.value = false;
-  }
-}
+const cLevel = useTemplateRef('chartLevel')
+const labelsLevel = ref([])
+const dataLevel = ref([])
 
-// 讀取旅館資料
-const allHotels = ref([])
-const loadHotelData = async () => {
-  try {
-    const res = await fetch('./json/HotelList.json')
+const cEdu = useTemplateRef('chartEdu')
+const labelsEdu = ref([])
+const dataEdu = ref([])
 
-    if (!res.ok) {
-      throw new Error('連線錯誤!')
-    }
-
-    const data = await res.json()
-    allHotels.value = data.Hotels
-
-    genCityList()
-
-  } catch (err) {
-    console.error('無法取得資料:', err)
-  }
-}
-
-// 取得縣市列表
-const cityList = ref([])
-const cityCounter = ref({})
-const cityData = ref([])
-const selectedCity = ref('')
-const genCityList = async () => {
-  // 產生縣市選單
-  allHotels.value.forEach(item => {
-    const city = item.PostalAddress.City
-    if (cityCounter.value[city] == undefined) {
-      cityCounter.value[city] = cityData.value.length
-      cityData.value.push([])
-      cityList.value[cityCounter.value[city]] = city
-    }
-    cityData.value[cityCounter.value[city]].push(item)
-  })
-
-  // console.log('縣市列表:', cityList.value)
-}
-
-// 根據選定縣市取得鄉鎮資料
-const townList = ref([])
-const townCounter = ref({})
-const townData = ref([])
-const getData = (selectedCity) => {
-  // 清空舊資料
-  townList.value = []
-  townCounter.value = {}
-  townData.value = []
-
-  // 資料重構
-  allHotels.value.forEach(item => {
-    if (item.PostalAddress.City === selectedCity) {
-      const town = item.PostalAddress.Town
-      if (townCounter.value[town] == undefined) {
-        townCounter.value[town] = townData.value.length
-        townData.value.push([])
-        townList.value[townCounter.value[town]] = town
-      }
-      townData.value[townCounter.value[town]].push(item)
-    }
-  })
-
-  // console.log('鄉鎮列表:', townList.value)
-  // console.log('鄉鎮資料:', townData.value)
-
-  // 產生圖表
-  chartLabels.value = townList.value
-  chartData.value = townData.value.map(arr => arr.length)
-  makeChart(ctx.value, chartLabels.value, chartData.value, "bar", "旅館數量")
-}
-
-// 監控選單
-watch(selectedCity, (newCity) => {
-  if (newCity) {
-    getData(newCity)
-  }
-})
+const cCity = useTemplateRef('chartCity')
+const labelsCity = ref([])
+const dataCity = ref([])
 
 onMounted(async () => {
-  loading.value = true;
+  isLoading.value = true;
 
-  await loadUsersData()
+  try {
+    const levelData = await countLevel()
+    const eduData = await countEdu()
+    const cityData = await countCity()
 
-  await loadHotelData()
+    // 處理資料
+    levelData.data.forEach(item => {
+      labelsLevel.value.push(item.level)
+      dataLevel.value.push(item.count)
+    });
+
+    eduData.data.forEach(item => {
+      labelsEdu.value.push(item.edu)
+      dataEdu.value.push(item.count)
+    });
+
+    cityData.data.forEach(item => {
+      labelsCity.value.push(item.city)
+      dataCity.value.push(item.count)
+    });
+
+    // 所有資料處理完畢
+    isLoading.value = false;
+    await nextTick();
+
+    // 繪製圖表
+    insCharts.value.push(makeChart(cLevel.value, labelsLevel.value, dataLevel.value, "bar", "數量"))
+    insCharts.value.push(makeChart(cEdu.value, labelsEdu.value, dataEdu.value, "bar", "數量"))
+    insCharts.value.push(makeChart(cCity.value, labelsCity.value, dataCity.value, "bar", "數量"))
+
+  } catch (err) {
+    error.value = err.message;
+    isLoading.value = false;
+  }
 });
+
+onUnmounted(() => {
+  insCharts.value.forEach(ins => ins.destroy())
+})
 </script>
 
 <style scoped>
-.grid-container {
+.charts {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  padding: 0 10px;
-  width: 100vw;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
 }
 
 .form-select {
   width: 600px;
 }
 
-.chart {
-  width: 800px;
-  border: 2px solid black;
+canvas {
+  width: 100% !important;
+  height: auto !important;
+  border: 1px solid #ddd;
+}
+
+.city {
+  grid-row: 2;
+  grid-column: span 2;
 }
 </style>

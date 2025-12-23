@@ -6,9 +6,9 @@
         <tr>
           <th scope="col">ID</th>
           <th scope="col">使用者名稱</th>
-          <th scope="col">Email</th>
-          <th scope="col">電話</th>
           <th scope="col">權限等級</th>
+          <th scope="col">居住城市</th>
+          <th scope="col">學歷</th>
           <th scope="col">建立時間</th>
           <th scope="col">動作</th>
         </tr>
@@ -20,9 +20,9 @@
           <tr class="d-none d-md-table-row">
             <th scope="row">{{ user.id }}</th>
             <td>{{ user.username }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.tel }}</td>
             <td>{{ user.level }}</td>
+            <td>{{ user.city }}</td>
+            <td>{{ user.edu }}</td>
             <td>{{ user.created_at }}</td>
             <td>
               <button>修改</button>
@@ -44,24 +44,16 @@
                     <td>{{ user.username }}</td>
                   </tr>
                   <tr>
-                    <th scope="row">Email</th>
-                    <td>{{ user.email }}</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">電話</th>
-                    <td>{{ user.tel }}</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">生日</th>
-                    <td>{{ user.birth_date || '未提供' }}</td>
-                  </tr>
-                  <tr>
                     <th scope="row">權限等級</th>
                     <td>{{ user.level }}</td>
                   </tr>
                   <tr>
-                    <th scope="row">訂閱電子報</th>
-                    <td>{{ user.sub_news ? '是' : '否' }}</td>
+                    <th scope="row">居住城市</th>
+                    <td>{{ user.city }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">學歷</th>
+                    <td>{{ user.edu }}</td>
                   </tr>
                   <tr>
                     <th scope="row">建立時間</th>

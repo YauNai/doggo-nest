@@ -1,10 +1,10 @@
 <template>
-  <AdminNav @doLogout="doLogout" :isLoggedIn="isLoggedIn" :username="username" />
+  <AdminNav @doLogout="doLogout" :isLoggedIn="isLoggedIn" :username="username"/>
 
   <section id="login">
     <div v-if="level !== 'admin'" class="grid-container py-3">
       <h2 v-if="!isLoggedIn">請先登入</h2>
-      <h2 v-else>您無權觀看此頁面！</h2>
+      <h2 v-if="isLoggedIn">您無權觀看此頁面！</h2>
       <form @submit.prevent="doLogin" class="card">
         <div class="py-3">
           <label for="username" class="form-label">使用者名稱</label>

@@ -3,7 +3,7 @@
     <RouterLink to="/" class="btn">返回首頁</RouterLink>
     <div class="text-center align-self-center">
       <h1>管理員頁面</h1>
-      <p v-if="isLoggedIn">您好：{{ username }}</p>
+      <p v-show="isLoggedIn">您好：{{ username }}</p>
     </div>
     <button v-if="isLoggedIn" @click="$emit('doLogout')" class="btn">登出</button>
   </nav>
