@@ -25,82 +25,107 @@
   </section>
 
   <main v-if="level === 'admin'">
-    <Users />
+    <nav>
+      <p class="py-4 text-center">
+        <a href="#" @click="changeContent('chart')" :class="{
+          'selected': currContent === 'chart'
+        }">會員圖表</a> |
+        <a href="#" @click="changeContent('list')" :class="{
+          'selected': currContent === 'list'
+        }">會員列表</a>
+      </p>
+    </nav>
+    <Chart v-if="currContent === 'chart'" />
+    <Users v-if="currContent === 'list'" />
   </main>
 </template>
 
 <script setup>
-  import useLogin from "@/composables/useLogin"
-  import { useAuth } from '@/composables/useAuth';
-  import { onMounted, ref, watch } from 'vue';
-  import AdminNav from "@/components/admin/AdminNav.vue";
+import useLogin from "@/composables/useLogin"
+import { useAuth } from '@/composables/useAuth';
+import { onMounted, ref, watch } from 'vue';
+import AdminNav from "@/components/admin/AdminNav.vue";
 import Users from "@/components/admin/Users.vue";
+import Chart from "@/components/admin/Chart.vue";
 
-  const { checkAuth, username, isLoggedIn, level, logout } = useAuth()
+const { checkAuth, username, isLoggedIn, level, logout } = useAuth()
 
-  onMounted(async () => {
-    await checkAuth()
-  })
+const currContent = ref("chart")
+const changeContent = (content) => {
+  currContent.value = content
+}
 
-  const loginUsername = ref("")
-  const showUsernameError = ref(false)
-  const password = ref("")
-  const showPasswordError = ref(false)
+onMounted(async () => {
+  await checkAuth()
+})
 
-  watch(loginUsername, () => {
-    showUsernameError.value = false
-  })
-  watch(password, () => {
-    showPasswordError.value = false
-  })
+const loginUsername = ref("")
+const showUsernameError = ref(false)
+const password = ref("")
+const showPasswordError = ref(false)
 
-  const loginError = ref("")
-  const isLoginingSuccess = ref(false)
+watch(loginUsername, () => {
+  showUsernameError.value = false
+})
+watch(password, () => {
+  showPasswordError.value = false
+})
 
-  const doLogin = async () => {
-    loginError.value = ""
+const loginError = ref("")
+const isLoginingSuccess = ref(false)
 
-    // 檢查所有欄位是否有效
-    if (!loginUsername.value.length || !loginUsername.value.length) {
+const doLogin = async () => {
+  loginError.value = ""
 
-      if (!loginUsername.value.length) {
-        showUsernameError.value = true
-      }
+  // 檢查所有欄位是否有效
+  if (!loginUsername.value.length || !loginUsername.value.length) {
 
-      if (!password.value.length) {
-        showPasswordError.value = true
-      }
-
-      return;
+    if (!loginUsername.value.length) {
+      showUsernameError.value = true
     }
 
-    // 執行登入邏輯
-    const result = await useLogin(loginUsername.value, password.value);
-    isLoginingSuccess.value = result.isLoginingSuccess
-    loginError.value = result.loginError
-
-    if (isLoginingSuccess.value) {
-      window.location.reload()
+    if (!password.value.length) {
+      showPasswordError.value = true
     }
 
-  };
+    return;
+  }
 
-  const doLogout = () => {
-    logout()
+  // 執行登入邏輯
+  const result = await useLogin(loginUsername.value, password.value);
+  isLoginingSuccess.value = result.isLoginingSuccess
+  loginError.value = result.loginError
+
+  if (isLoginingSuccess.value) {
     window.location.reload()
   }
 
+};
 
+const doLogout = () => {
+  logout()
+  window.location.reload()
+}
 </script>
 
 <style scoped>
-  .grid-container {
-    display: grid;
-    justify-items: center;
-  }
+.grid-container {
+  display: grid;
+  justify-items: center;
+}
 
-  .card {
-    margin-top: 20px;
-    padding: 20px 50px;
-  }
+a {
+  color: var(--brand-text);
+  text-decoration: none;
+}
+
+.selected {
+  color: var(--brand-dark);
+  font-weight: bold;
+}
+
+.card {
+  margin-top: 20px;
+  padding: 20px 50px;
+}
 </style>

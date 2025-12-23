@@ -1,5 +1,6 @@
 <template>
   <section>
+    <h1 class="text-center pb-3">會員列表</h1>
     <table class="table table-striped table-bordered">
       <thead class="d-none d-md-table-header-group">
         <tr>
@@ -28,7 +29,7 @@
               <button class="ms-2">刪除</button>
             </td>
           </tr>
-          
+
           <!-- 手機版 -->
           <tr class="d-md-none">
             <td>
@@ -94,7 +95,7 @@ const error = ref(null);
 
 onMounted(async () => {
   loading.value = true;
-  
+
   try {
     const data = await getAllUsers();
     users.value = data.users;
