@@ -47,7 +47,7 @@ const members = ref([
     name: "Ryan Tsai",
     role: "營養與健康管理師",
     about:
-      "寵物營養學專家,針對不同年齡、體況的狗狗規劃客製化飲食方案。協助過敏、肥胖或體弱的犬隻恢復健康狀態，提升領養成功率。",
+      "寵物營養學專家，針對不同年齡、體況的狗狗規劃客製化飲食方案。協助過敏、肥胖或體弱的犬隻恢復健康狀態，提升領養成功率。",
     word: "好好吃飯，是幸福生活的第一步。",
   },
   {
@@ -87,7 +87,7 @@ const members = ref([
     name: "Yang Chang",
     role: "網站與系統工程師",
     about:
-      "原 3D 動畫師結果公司解散來學寫程式的菜鳥工程師，最擅長 Vive Coding。最喜歡的遊戲是 Red Dead Redemption 2，最愛的 V 家音樂是 Ayase 的「HERO」。",
+      "原 3D 動畫師結果公司解散來學寫程式的菜鳥工程師，最擅長 Vibe Coding。最喜歡的遊戲是 Red Dead Redemption 2，最愛的 V 家音樂是 Ayase 的「HERO」。",
     word: "ハッピーバースデー 親愛なるヒーローへ",
   },
   {
