@@ -1,6 +1,6 @@
 <script setup>
 import { useValidation } from '@/composables/useValidation';
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 
 const showSubError = ref(false)
 const isSubbed = ref(false)
@@ -45,8 +45,7 @@ const handleSubAgain = () => {
     >
       <h3 class="my-4">{{ main }}</h3>
       <input 
-        v-model="subEmail" 
-        id="subEmail" 
+        v-model="subEmail"
         type="email" 
         class="form-control mx-auto w-50 border-2 text-center" 
         :class="{

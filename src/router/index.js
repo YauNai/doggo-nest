@@ -1,7 +1,6 @@
-import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AdminView from '@/views/AdminView.vue'
-import { useAuth } from '@/composables/useAuth'
 import NotFoundView from '@/views/NotFoundView.vue'
 
 const router = createRouter({

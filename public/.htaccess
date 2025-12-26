@@ -1,8 +1,8 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /my-project/
+  RewriteBase /web202510/doggo-nest/
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /my-project/index.html [L]
+  RewriteRule . /web202510/doggo-nest/index.html [L]
 </IfModule>
