@@ -4,7 +4,7 @@
 
 主要目標是練習 SPA 架構、前後端 API 串接，以及身分驗證流程。
 
-[線上預覽]()
+[線上預覽](https://doggo-nest.onrender.com/)
 
 ## 網站特色
 
@@ -19,6 +19,7 @@
 ### 框架
 
 - Vue.js
+- Flask *(API)*
 
 ### 套件
 
@@ -29,7 +30,6 @@
 - TypeIt
 - CounterUp2
 - Chart.js
-- Flask *(API)*
 
 ### 設計規劃
 
@@ -71,5 +71,4 @@
          ├─ Instagram
          ├─ Twitter
          └─ Line
-         
 ```
