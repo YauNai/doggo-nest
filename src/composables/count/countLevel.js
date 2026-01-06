@@ -7,7 +7,7 @@ export default async function countLevel() {
       throw new Error("尚未登入");
     }
 
-    const res = await fetch("http://127.0.0.1:5000/api/admin/count/level", {
+    const res = await fetch("https://test-db-gmxh.onrender.com/api/admin/count/level", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

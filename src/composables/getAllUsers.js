@@ -7,7 +7,7 @@ export default async function getAllUsers() {
       throw new Error("尚未登入");
     }
 
-    const res = await fetch("http://127.0.0.1:5000/api/admin/users", {
+    const res = await fetch("https://test-db-gmxh.onrender.com/api/admin/users", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
