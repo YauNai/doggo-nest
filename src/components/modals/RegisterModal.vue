@@ -24,7 +24,7 @@
     }
 
     try {
-      const res = await fetch("http://127.0.0.1:5000/api/checkuni", {
+      const res = await fetch("https://test-db-gmxh.onrender.com/api/checkuni", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -236,8 +236,8 @@
             <span v-if="showSubmitError" class="text-danger text-center">
               <p>{{ registerError }}</p>
             </span>
-            <button type="submit" class="btn" @click.prevent="handleSubmit">
-              註冊
+            <button type="submit" class="btn" @click.prevent="handleSubmit" :disabled="isRegistering">
+              {{ isRegistering ? '註冊中...' : '註冊' }}
             </button>
 
             <button type="button" class="btn btn-sp" data-bs-toggle="modal" data-bs-target="#loginModal">

@@ -93,7 +93,7 @@
 
           <div class="d-grid gap-2 mb-3">
             <div v-if="loginError" class="text-center text-danger">{{ loginError }}</div>
-            <button @click="doLogin()" type="submit" class="btn">登入</button>
+            <button @click="doLogin()" type="submit" class="btn" :disabled="isLogining">{{ isLogining ? '登入中...' : '登入'  }}</button>
             <button type="button" class="btn btn-sp" data-bs-toggle="modal" data-bs-target="#registerModal">
               還沒加入狗狗窩嗎？ 註冊
             </button>

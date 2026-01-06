@@ -6,7 +6,7 @@ export default async function checkLoginStatus() {
   }
 
   try {
-      const res = await fetch("https://test-db-gmxh.onrender.com/api/checkme", {
+      const res = await fetch("https://test-db-gmxh.onrender.com/api/me", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`,
