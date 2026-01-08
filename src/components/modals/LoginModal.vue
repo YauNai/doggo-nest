@@ -2,8 +2,8 @@
   import useLogin from "@/composables/useLogin"
   import { ref, watch } from 'vue';
 
-  const loginName = ref("")
-  const loginPassword = ref("")
+  const loginName = ref("admin")
+  const loginPassword = ref("123456")
   const showLoginNameError = ref(false)
   const showLoginPasswordError = ref(false)
 

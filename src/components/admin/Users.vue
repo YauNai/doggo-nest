@@ -1,14 +1,12 @@
 <template>
   <section>
-    <h1 class="text-center pb-3">會員列表</h1>
+    <h1 class="text-center py-3">會員列表</h1>
     <table class="table table-striped table-bordered">
       <thead class="d-none d-md-table-header-group">
         <tr>
           <th scope="col">ID</th>
           <th scope="col">使用者名稱</th>
           <th scope="col">權限等級</th>
-          <th scope="col">居住城市</th>
-          <th scope="col">學歷</th>
           <th scope="col">建立時間</th>
           <th scope="col">動作</th>
         </tr>
@@ -21,8 +19,6 @@
             <th scope="row">{{ user.id }}</th>
             <td>{{ user.username }}</td>
             <td>{{ user.level }}</td>
-            <td>{{ user.city }}</td>
-            <td>{{ user.edu }}</td>
             <td>{{ user.created_at }}</td>
             <td>
               <button>修改</button>
@@ -46,14 +42,6 @@
                   <tr>
                     <th scope="row">權限等級</th>
                     <td>{{ user.level }}</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">居住城市</th>
-                    <td>{{ user.city }}</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">學歷</th>
-                    <td>{{ user.edu }}</td>
                   </tr>
                   <tr>
                     <th scope="row">建立時間</th>

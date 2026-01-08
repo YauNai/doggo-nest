@@ -25,7 +25,7 @@
   </section>
 
   <main v-if="level === 'admin'">
-    <nav>
+    <!-- <nav>
       <p class="py-4 text-center">
         <a href="#" @click="changeContent('chart')" :class="{
           'selected': currContent === 'chart'
@@ -34,8 +34,8 @@
           'selected': currContent === 'list'
         }">會員列表</a>
       </p>
-    </nav>
-    <Chart v-if="currContent === 'chart'" />
+    </nav> -->
+    <!-- <Chart v-if="currContent === 'chart'" /> -->
     <Users v-if="currContent === 'list'" />
   </main>
 </template>
@@ -50,7 +50,7 @@ import Chart from "@/components/admin/Chart.vue";
 
 const { checkAuth, username, isLoggedIn, level, logout } = useAuth()
 
-const currContent = ref("chart")
+const currContent = ref("list")
 const changeContent = (content) => {
   currContent.value = content
 }
